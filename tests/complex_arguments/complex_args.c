@@ -8,11 +8,11 @@ int main(int argc, char **argv) {
     printf("argc=%d\n", argc);
 
     if (argc != 5) {
-        fputs("error: need 3 arguments\n", stderr);
+        fputs("error: need 4 arguments\n", stderr);
         return 1;
     }
 
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < 5; i++)
         puts(argv[i]);
 
     printf("%.0f\n", pow(2, 10));

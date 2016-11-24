@@ -28,7 +28,7 @@ header2() { echo -e "${italics}${yellow}$@${nc}"; }
 assert() {
     echo -en "${cyan}$1${nc} - "
 
-    if `eval "test $2"`; then
+    if `eval "[[ $2 ]]"`; then
         echo -e "${green}pass: $2${nc}" 1>&2
         let PASSES++
     else
@@ -59,5 +59,9 @@ quit() {
 
     exit $FAILS
 }
+
+# clear out the cache
+export C_CACHE_PATH="$(mktemp -d -t c.XXX)"
+rm -rf "$C_CACHE_PATH"
 
 START=$(date +%s.%N)
